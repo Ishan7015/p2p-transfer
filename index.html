@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>P2P File Transfer App</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://unpkg.com/peerjs@1.4.7/dist/peerjs.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <h2>P2P File Transfer App</h2>
+
+        <div class="peer-id-section">
+            <p>Your Peer ID: <span id="my-id">...</span>
+                <button id="copy-button" title="Copy Peer ID">📋</button>
+            </p>
+            <p class="instruction">Share this ID with your peer.</p>
+        </div>
+
+        <div id="connectForm" class="form-section">
+            <label for="peer-id-input">Connect to Peer ID:</label>
+            <input type="text" id="peer-id-input" placeholder="Enter Peer ID">
+            <button id="connectButton">Connect</button>
+        </div>
+
+        <div id="status" class="status">Status: Not connected</div>
+
+        <div id="fileInput" class="file-section">
+            <input type="file" id="file" disabled>
+            <button id="sendButton" disabled>Send File</button>
+            <p id="selected-file" class="selected-file">No file selected.</p>
+        </div>
+
+        <a id="downloadLink" href="#" download class="download-link" style="display: none;">Download Received File</a>
+    </div>
+
+    <div id="modal" class="modal">
+        <div class="modal-content">
+            <p id="modal-message">Do not close or refresh</p>
+            <div class="progress-bar-container">
+                <div id="progressBar" class="progress-bar"></div>
+            </div>
+            <p id="percentage" class="transfer-info">0%</p> 
+            <p id="speed" class="transfer-info">Speed: 0 KB/s</p> 
+            <p id="eta" class="transfer-info">Estimated Time: 0s</p> 
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
